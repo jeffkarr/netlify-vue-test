@@ -14,10 +14,10 @@ export default {
     Articles
   },
   data() {
-    articles: []
+    // articles: []
   },
   created: function () {
-    this.message = await 
+    // this.message = await 
   }
 }
 </script>

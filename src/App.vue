@@ -1,17 +1,23 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Netlify Vue Test Page"/>
+    <Articles msg="Welcome to Netlify Vue Test Page"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Articles from './components/Articles.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Articles
+  },
+  data() {
+    articles: []
+  },
+  created: function () {
+    this.message = await 
   }
 }
 </script>

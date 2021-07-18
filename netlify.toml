@@ -1,6 +1,6 @@
 [build]
+    functions=".functions"
     publish="/dist"
-    functions="/functions"
 [[redirects]]
     from="/api/*"
     to="/.netlify/functions/api/:splat"

@@ -1,13 +1,3 @@
-
-// async function hello() {
-//     return Promise.resolve("Hello to my World");
-// }
-
-// exports.handler = async (event, context) => {
-//     const body = await hello();
-//     return { statusCode: 200, body: JSON.stringify(body)};
-// }
-
 const express = require('express');
 const serverless = require('serverless-http');
 

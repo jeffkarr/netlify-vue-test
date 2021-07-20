@@ -1,13 +1,27 @@
 const express = require('express');
 const serverless = require('serverless-http');
+const http = require('http');
 
 const app = express();
 
 const router = express.Router();
 
-router.get('/question', (req, res) => {
-    res.json({
-        'question': 'How are you?'
+router.get('/getArticles', (req, res) => {
+    const url = `http://api.mediastack.com/v1/news?access_key=${process.env.VUE_APP_APIKEY}&countries=us`;
+    var getArticles = http.get(url, function (resp) {
+        // console.log('STATUS: ' + res.statusCode);
+        let output = '';
+        resp.on('data', (chunk) => {
+            output += chunk;
+        })
+        resp.on('end', () => {
+            let jsonObjArr = JSON.parse(output);
+
+            res.send(jsonObjArr);
+        });
+        resp.on('error', (e) => {
+            console.error(e);
+        });
     });
 });
 

@@ -2,8 +2,11 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <Articles msg="Welcome to Netlify Vue Test Page"/>
-    <h3>{{question}}</h3>
-    <h3>{{answer}}</h3>
+    <ul>
+      <li v-for="article in articles" :key="article.title">
+        {{ article.title }}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -17,19 +20,19 @@ export default {
   },
   data () {
     return {
-      question: '',
-      answer: ''
-      // articles: []
+      // question: '',
+      answer: '',
+      articles: []
     }
   },
   created: function () {
     // this.message = await 
     let self = this;
-    fetch('/api/question')
+    fetch('/api/getArticles')
     .then(resp => resp.json())
     .then(data => {
-      console.log(data)
-      self.question = data.question;
+      console.log(data.data)
+      self.articles = data.data;
     });
 
     fetch('/api/answer')
